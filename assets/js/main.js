@@ -156,3 +156,21 @@ document.querySelectorAll('.service-card, .mega-card.featured').forEach(card => 
     card.style.transform = '';
   });
 });
+
+
+// Magnetic button polish
+document.querySelectorAll('.btn, .footer-cta, .float-call').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.setProperty('--mx', x.toFixed(2));
+    el.style.setProperty('--my', y.toFixed(2));
+    el.classList.add('magnetic-pop');
+  });
+  el.addEventListener('mouseleave', () => {
+    el.classList.remove('magnetic-pop');
+    el.style.removeProperty('--mx');
+    el.style.removeProperty('--my');
+  });
+});
