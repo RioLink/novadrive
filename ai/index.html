@@ -1,284 +1,639 @@
 <!doctype html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI-інтеграції — NovaDrive</title>
-  <meta name="description" content="AI-інтеграції — автоматизація, що окупається"/>
-  <link rel="stylesheet" href="/assets/css/style.css"/>
-  <style>
-    .service-hero{padding:120px 0 80px;background:var(--bg);position:relative;overflow:hidden}
-    .service-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(124,58,237,.15),transparent 70%);pointer-events:none}
-    .service-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.05) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite;pointer-events:none}
-    .service-hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;max-width:760px}
-    .service-hero img{width:72px;height:72px}
-    .service-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#e8eaf6;margin:0;line-height:1.1}
-    .service-hero h1 span{background:linear-gradient(135deg,#7c3aed,#f59e0b);-webkit-background-clip:text;color:transparent}
-    .service-hero .lead{color:#a8b0d6;font-size:1.1rem;line-height:1.7;margin:0}
-    .service-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
-    .features-section{padding:100px 0}
-    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
-    .feature-item{background:#fff;border:1px solid rgba(124,58,237,.12);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;transition:.3s}
-    .feature-item:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(124,58,237,.15)}
-    .feature-item span{font-size:2.4rem}
-    .feature-item h3{font-family:'Syne',sans-serif;font-size:1.05rem;margin:0;color:#0c0e26}
-    .feature-item p{color:#5c627a;font-size:.9rem;line-height:1.65;margin:0}
-    .process-section{padding:100px 0;background:#f5f4ff}
-    .process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:56px}
-    .step{background:#fff;border:1px solid rgba(124,58,237,.14);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px}
-    .step-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#a855f7);-webkit-background-clip:text;color:transparent}
-    .step h3{font-family:'Syne',sans-serif;margin:0;color:#0c0e26}
-    .step p{color:#5c627a;font-size:.9rem;line-height:1.65;margin:0}
-    .faq-section{padding:100px 0}
-    .faq-list{display:flex;flex-direction:column;gap:12px;margin-top:56px;max-width:800px}
-    .faq-item{background:#fff;border:1px solid rgba(124,58,237,.14);border-radius:16px;overflow:hidden}
-    .faq-item summary{padding:22px 28px;cursor:pointer;font-weight:700;color:#0c0e26;list-style:none;display:flex;justify-content:space-between;align-items:center}
-    .faq-item summary::after{content:'+';color:var(--violet);font-size:1.4rem;transition:.2s}
-    .faq-item[open] summary::after{transform:rotate(45deg)}
-    .faq-item p{padding:0 28px 22px;color:#5c627a;font-size:.9rem;line-height:1.7;margin:0}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-інтеграції — NovaDrive</title>
+    <meta
+      name="description"
+      content="AI-інтеграції — автоматизація, що окупається"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <style>
+      .service-hero {
+        padding: 120px 0 80px;
+        background: var(--bg);
+        position: relative;
+        overflow: hidden;
+      }
+      .service-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 60% at 70% 50%,
+          rgba(124, 58, 237, 0.15),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .service-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: gridMove 20s linear infinite;
+        pointer-events: none;
+      }
+      .service-hero-inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 760px;
+      }
+      .service-hero img {
+        width: 72px;
+        height: 72px;
+      }
+      .service-hero h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 800;
+        color: #e8eaf6;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .service-hero h1 span {
+        background: linear-gradient(135deg, #7c3aed, #f59e0b);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .service-hero .lead {
+        color: #a8b0d6;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .service-cta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .features-section {
+        padding: 100px 0;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 0;
+      }
+      .feature-item {
+        background: #fff;
+        border: 1px solid rgba(124, 58, 237, 0.12);
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        transition: 0.3s;
+      }
+      .feature-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
+      }
+      .feature-item span {
+        font-size: 2.4rem;
+      }
+      .feature-item h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.05rem;
+        margin: 0;
+        color: #0c0e26;
+      }
+      .feature-item p {
+        color: #5c627a;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .process-section {
+        padding: 100px 0;
+        background: #f5f4ff;
+      }
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin-top: 56px;
+      }
+      .step {
+        background: #fff;
+        border: 1px solid rgba(124, 58, 237, 0.14);
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .step-num {
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #7c3aed, #a855f7);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .step h3 {
+        font-family: "Syne", sans-serif;
+        margin: 0;
+        color: #0c0e26;
+      }
+      .step p {
+        color: #5c627a;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .faq-section {
+        padding: 100px 0;
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 56px;
+        max-width: 800px;
+      }
+      .faq-item {
+        background: #fff;
+        border: 1px solid rgba(124, 58, 237, 0.14);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .faq-item summary {
+        padding: 22px 28px;
+        cursor: pointer;
+        font-weight: 700;
+        color: #0c0e26;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-item summary::after {
+        content: "+";
+        color: var(--violet);
+        font-size: 1.4rem;
+        transition: 0.2s;
+      }
+      .faq-item[open] summary::after {
+        transform: rotate(45deg);
+      }
+      .faq-item p {
+        padding: 0 28px 22px;
+        color: #5c627a;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin: 0;
+      }
 
-    .service-proof{padding:34px 0;background:#f5f4ff}
-    .proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .proof-strip div{background:#fff;border:1px solid rgba(124,58,237,.14);border-radius:18px;padding:22px;box-shadow:0 12px 34px rgba(124,58,237,.08)}
-    .proof-strip b{display:block;font-family:'Syne',sans-serif;font-size:2rem;color:var(--violet);line-height:1}
-    .proof-strip span{display:block;margin-top:8px;color:#5c627a;font-weight:700;font-size:.9rem}
-    .outcomes-section{padding:100px 0;background:#fff;overflow:hidden}
-    .outcomes-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
-    .outcomes-copy h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.7rem);line-height:1.12;margin:10px 0 16px;color:#0c0e26}
-    .outcomes-copy p{color:#5c627a;line-height:1.75;margin:0}
-    .outcome-cards{display:grid;gap:16px}
-    .outcome-card{border:1px solid rgba(124,58,237,.14);border-radius:18px;padding:24px;background:linear-gradient(135deg,#fff,#f8f7ff);box-shadow:0 14px 38px rgba(124,58,237,.08);transition:.25s}
-    .outcome-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.34)}
-    .outcome-card h3{font-family:'Syne',sans-serif;margin:0 0 8px;color:#0c0e26}
-    .outcome-card p{margin:0;color:#5c627a;line-height:1.65;font-size:.92rem}
-    .sprint-line{margin-top:40px;display:flex;gap:10px;flex-wrap:wrap}
-    .sprint-line span{padding:10px 14px;border-radius:999px;background:#f3f0ff;border:1px solid rgba(124,58,237,.16);color:#6b5fb0;font-weight:800;font-size:.82rem}
-    @media(max-width:768px){.features-grid,.process-grid,.proof-strip,.outcomes-grid{grid-template-columns:1fr}.sprint-line span{flex:1 1 auto;text-align:center}}
+      .service-proof {
+        padding: 34px 0;
+        background: #f5f4ff;
+      }
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .proof-strip div {
+        background: #fff;
+        border: 1px solid rgba(124, 58, 237, 0.14);
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 12px 34px rgba(124, 58, 237, 0.08);
+      }
+      .proof-strip b {
+        display: block;
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        color: var(--violet);
+        line-height: 1;
+      }
+      .proof-strip span {
+        display: block;
+        margin-top: 8px;
+        color: #5c627a;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .outcomes-section {
+        padding: 100px 0;
+        background: #fff;
+        overflow: hidden;
+      }
+      .outcomes-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 44px;
+        align-items: start;
+      }
+      .outcomes-copy h2 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.7rem);
+        line-height: 1.12;
+        margin: 10px 0 16px;
+        color: #0c0e26;
+      }
+      .outcomes-copy p {
+        color: #5c627a;
+        line-height: 1.75;
+        margin: 0;
+      }
+      .outcome-cards {
+        display: grid;
+        gap: 16px;
+      }
+      .outcome-card {
+        border: 1px solid rgba(124, 58, 237, 0.14);
+        border-radius: 18px;
+        padding: 24px;
+        background: linear-gradient(135deg, #fff, #f8f7ff);
+        box-shadow: 0 14px 38px rgba(124, 58, 237, 0.08);
+        transition: 0.25s;
+      }
+      .outcome-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(124, 58, 237, 0.34);
+      }
+      .outcome-card h3 {
+        font-family: "Syne", sans-serif;
+        margin: 0 0 8px;
+        color: #0c0e26;
+      }
+      .outcome-card p {
+        margin: 0;
+        color: #5c627a;
+        line-height: 1.65;
+        font-size: 0.92rem;
+      }
+      .sprint-line {
+        margin-top: 40px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .sprint-line span {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: #f3f0ff;
+        border: 1px solid rgba(124, 58, 237, 0.16);
+        color: #6b5fb0;
+        font-weight: 800;
+        font-size: 0.82rem;
+      }
+      @media (max-width: 768px) {
+        .features-grid,
+        .process-grid,
+        .proof-strip,
+        .outcomes-grid {
+          grid-template-columns: 1fr;
+        }
+        .sprint-line span {
+          flex: 1 1 auto;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"><div class="loader-ring"></div></div>
 
-  </style>
-</head>
-<body>
-<div class="loader"><div class="loader-ring"></div></div>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="logo logo-premium" href="/" aria-label="NovaDrive">
+          <span class="logo-mark"><i></i></span>
+          <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
+        </a>
+        <div class="quick-contact">
+          <span class="dot"></span>
+          <a href="tel:+380991072034">+380 99 107 2034</a>
+        </div>
+        <nav class="desktop-nav">
+          <a href="/branding">Брендинг</a>
+          <a href="/webdev">Веб</a>
+          <a href="/ai">AI</a>
+          <a href="/analytics">Аналітика</a>
+          <a href="/motion">Моушн</a>
+          <a href="/support">Підтримка</a>
+        </nav>
+        <button class="menu-btn" aria-label="Меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-<header class="site-header" id="top">
-  <div class="container nav-wrap">
-    <a class="logo logo-premium" href="/" aria-label="NovaDrive">
-      <span class="logo-mark"><i></i></span>
-      <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
-    </a>
-    <div class="quick-contact">
-      <span class="dot"></span>
-      <a href="tel:+380991072034">+380 99 107 2034</a>
-    </div>
-    <nav class="desktop-nav">
-      <a href="/branding">Брендинг</a>
-      <a href="/webdev">Веб</a>
-      <a href="/ai">AI</a>
-      <a href="/analytics">Аналітика</a>
-      <a href="/motion">Моушн</a>
-      <a href="/support">Підтримка</a>
-    </nav>
-    <button class="menu-btn" aria-label="Меню" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+    <aside class="mega-menu" aria-hidden="true">
+      <div class="mega-panel">
+        <div class="mega-head">
+          <a class="logo logo-premium" href="/" aria-label="NovaDrive">
+            <span class="logo-mark"><i></i></span>
+            <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
+          </a>
+          <button class="close-menu" aria-label="Закрити">×</button>
+        </div>
+        <div class="mega-grid">
+          <div class="mega-card featured">
+            <p class="eyebrow">Послуга</p>
+            <h3>AI-інтеграції</h3>
+            <p>AI-інтеграції — автоматизація, що окупається</p>
+            <a class="btn small" href="#consult">Обговорити проєкт <i>›</i></a>
+          </div>
+          <div class="mega-card">
+            <h3>Послуги</h3>
+            <a href="/branding">Брендинг і айдентика</a>
+            <a href="/webdev">Веброзробка</a>
+            <a href="/ai">AI-інтеграції</a>
+            <a href="/analytics">Аналітика</a>
+            <a href="/motion">Моушн-дизайн</a>
+            <a href="/support">Технічна підтримка</a>
+          </div>
+          <div class="mega-card">
+            <h3>Навігація</h3>
+            <a href="/">Головна</a><a href="/#cases">Кейси</a>
+            <a href="/#reviews">Відгуки</a><a href="/#team">Команда</a>
+          </div>
+          <div class="mega-card contact-card">
+            <h3>Контакти</h3>
+            <a href="tel:+380991072034">+380 99 107 2034</a>
+            <a href="mailto:hello@novadrive.agency">hello@novadrive.agency</a>
+          </div>
+        </div>
+      </div>
+    </aside>
 
-<aside class="mega-menu" aria-hidden="true">
-  <div class="mega-panel">
-    <div class="mega-head">
-      <a class="logo logo-premium" href="/" aria-label="NovaDrive">
-        <span class="logo-mark"><i></i></span>
-        <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
-      </a>
-      <button class="close-menu" aria-label="Закрити">×</button>
-    </div>
-    <div class="mega-grid">
-      <div class="mega-card featured">
-        <p class="eyebrow">Послуга</p>
-        <h3>AI-інтеграції</h3>
-        <p>AI-інтеграції — автоматизація, що окупається</p>
-        <a class="btn small" href="#consult">Обговорити проєкт <i>›</i></a>
-      </div>
-      <div class="mega-card">
-        <h3>Послуги</h3>
-        <a href="/branding">Брендинг і айдентика</a>
-        <a href="/webdev">Веброзробка</a>
-        <a href="/ai">AI-інтеграції</a>
-        <a href="/analytics">Аналітика</a>
-        <a href="/motion">Моушн-дизайн</a>
-        <a href="/support">Технічна підтримка</a>
-      </div>
-      <div class="mega-card"><h3>Навігація</h3>
-        <a href="/">Головна</a><a href="/#cases">Кейси</a>
-        <a href="/#reviews">Відгуки</a><a href="/#team">Команда</a>
-      </div>
-      <div class="mega-card contact-card"><h3>Контакти</h3>
-        <a href="tel:+380991072034">+380 99 107 2034</a>
-        <a href="mailto:hello@novadrive.agency">hello@novadrive.agency</a>
-      </div>
-    </div>
-  </div>
-</aside>
+    <main>
+      <section class="service-hero">
+        <div class="container service-hero-inner reveal">
+          <img src="/assets/img/ai.svg" alt="AI-інтеграції" />
+          <p class="eyebrow">AI-інтеграції</p>
+          <h1>AI-інтеграції — <span>автоматизація, що окупається</span></h1>
+          <p class="lead">
+            Впроваджуємо штучний інтелект у бізнес-процеси: чат-боти,
+            автоматизація підтримки, AI-аналіз даних, персоналізація і генерація
+            контенту. Реальна цінність, не хайп.
+          </p>
+          <div class="service-cta">
+            <a href="#consult" class="btn">Замовити послугу <i>›</i></a>
+            <a href="/#cases" class="btn amber">Дивитись кейси <i>›</i></a>
+          </div>
+        </div>
+      </section>
 
-<main>
-  <section class="service-hero">
-    <div class="container service-hero-inner reveal">
-      <img src="/assets/img/ai.svg" alt="AI-інтеграції"/>
-      <p class="eyebrow">AI-інтеграції</p>
-      <h1>AI-інтеграції — <span>автоматизація, що окупається</span></h1>
-      <p class="lead">Впроваджуємо штучний інтелект у бізнес-процеси: чат-боти, автоматизація підтримки, AI-аналіз даних, персоналізація і генерація контенту. Реальна цінність, не хайп.</p>
-      <div class="service-cta">
-        <a href="#consult" class="btn">Замовити послугу <i>›</i></a>
-        <a href="/#cases" class="btn amber">Дивитись кейси <i>›</i></a>
-      </div>
-    </div>
-  </section>
+      <section class="features-section">
+        <div class="container">
+          <h2 class="title reveal">Що входить у послугу</h2>
+          <div class="features-grid">
+            <div class="feature-item reveal">
+              <span>🤖</span>
+              <h3>AI-чат-боти</h3>
+              <p>
+                Чат-боти для підтримки, продажів і онбордингу на базі GPT-4 або
+                власних моделей.
+              </p>
+            </div>
+            <div class="feature-item reveal">
+              <span>🔍</span>
+              <h3>AI-пошук</h3>
+              <p>Семантичний пошук і рекомендації для сайтів і вебдодатків.</p>
+            </div>
+            <div class="feature-item reveal">
+              <span>📝</span>
+              <h3>Генерація контенту</h3>
+              <p>Автоматичні описи товарів, SEO-тексти, email-розсилки.</p>
+            </div>
+            <div class="feature-item reveal">
+              <span>📈</span>
+              <h3>Predictive Analytics</h3>
+              <p>Прогнозування попиту, відтоку клієнтів і конверсій.</p>
+            </div>
+            <div class="feature-item reveal">
+              <span>👁️</span>
+              <h3>Computer Vision</h3>
+              <p>Розпізнавання зображень і документів для автоматизації.</p>
+            </div>
+            <div class="feature-item reveal">
+              <span>🔗</span>
+              <h3>LLM Pipeline</h3>
+              <p>Архітектура RAG, fine-tuning і production-деплой LLM.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <section class="features-section">
-    <div class="container">
-      <h2 class="title reveal">Що входить у послугу</h2>
-      <div class="features-grid">
-        <div class="feature-item reveal"><span>🤖</span><h3>AI-чат-боти</h3><p>Чат-боти для підтримки, продажів і онбордингу на базі GPT-4 або власних моделей.</p></div>
-<div class="feature-item reveal"><span>🔍</span><h3>AI-пошук</h3><p>Семантичний пошук і рекомендації для сайтів і вебдодатків.</p></div>
-<div class="feature-item reveal"><span>📝</span><h3>Генерація контенту</h3><p>Автоматичні описи товарів, SEO-тексти, email-розсилки.</p></div>
-<div class="feature-item reveal"><span>📈</span><h3>Predictive Analytics</h3><p>Прогнозування попиту, відтоку клієнтів і конверсій.</p></div>
-<div class="feature-item reveal"><span>👁️</span><h3>Computer Vision</h3><p>Розпізнавання зображень і документів для автоматизації.</p></div>
-<div class="feature-item reveal"><span>🔗</span><h3>LLM Pipeline</h3><p>Архітектура RAG, fine-tuning і production-деплой LLM.</p></div>
-      </div>
-    </div>
-  </section>
+      <section class="service-proof">
+        <div class="container">
+          <div class="proof-strip reveal">
+            <div><b>30-70%</b><span>менше ручних задач</span></div>
+            <div><b>24/7</b><span>AI-відповіді</span></div>
+            <div><b>API</b><span>інтеграції з CRM</span></div>
+          </div>
+        </div>
+      </section>
 
-
-  <section class="service-proof">
-    <div class="container">
-      <div class="proof-strip reveal">
-        <div><b>30-70%</b><span>менше ручних задач</span></div>
-        <div><b>24/7</b><span>AI-відповіді</span></div>
-        <div><b>API</b><span>інтеграції з CRM</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="outcomes-section">
-    <div class="container outcomes-grid">
-      <div class="outcomes-copy reveal">
-        <p class="eyebrow">Результат</p>
-        <h2>AI без хаосу</h2>
-        <p>Ми не здаємо “набір файлів” і не зникаємо після презентації. Команда отримує зрозумілий результат, який можна запускати, вимірювати і розвивати.</p>
-      </div>
-      <div class="outcome-cards">
-        <article class="outcome-card reveal"><h3>Сценарії під бізнес</h3><p>Автоматизуємо саме ті процеси, де є повторюваність і вимірювана вигода.</p></article>
-        <article class="outcome-card reveal"><h3>Контроль відповідей</h3><p>Додаємо бази знань, правила безпеки і сценарії ескалації на менеджера.</p></article>
-        <article class="outcome-card reveal"><h3>Підключення до даних</h3><p>Інтегруємо AI з CRM, сайтом, формами, Telegram або внутрішніми сервісами.</p></article>
-      </div>
-    </div>
-    <div class="container sprint-line reveal">
-      <span>Discovery</span>
+      <section class="outcomes-section">
+        <div class="container outcomes-grid">
+          <div class="outcomes-copy reveal">
+            <p class="eyebrow">Результат</p>
+            <h2>AI без хаосу</h2>
+            <p>
+              Ми не здаємо “набір файлів” і не зникаємо після презентації.
+              Команда отримує зрозумілий результат, який можна запускати,
+              вимірювати і розвивати.
+            </p>
+          </div>
+          <div class="outcome-cards">
+            <article class="outcome-card reveal">
+              <h3>Сценарії під бізнес</h3>
+              <p>
+                Автоматизуємо саме ті процеси, де є повторюваність і вимірювана
+                вигода.
+              </p>
+            </article>
+            <article class="outcome-card reveal">
+              <h3>Контроль відповідей</h3>
+              <p>
+                Додаємо бази знань, правила безпеки і сценарії ескалації на
+                менеджера.
+              </p>
+            </article>
+            <article class="outcome-card reveal">
+              <h3>Підключення до даних</h3>
+              <p>
+                Інтегруємо AI з CRM, сайтом, формами, Telegram або внутрішніми
+                сервісами.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="container sprint-line reveal">
+          <span>Discovery</span>
           <span>Knowledge base</span>
           <span>Prototype</span>
           <span>Integration</span>
           <span>Training</span>
           <span>Monitoring</span>
-    </div>
-  </section>
+        </div>
+      </section>
 
-  <section class="process-section">
-    <div class="container">
-      <h2 class="title reveal">Як ми працюємо</h2>
-      <div class="process-grid">
-        <div class="step reveal"><span class="step-num">01</span><h3>Аудит процесів</h3><p>Аналізуємо бізнес-процеси і виявляємо точки для AI-автоматизації.</p></div>
-<div class="step reveal"><span class="step-num">02</span><h3>Proof of Concept</h3><p>За 1–2 тижні показуємо прототип, що демонструє реальну цінність.</p></div>
-<div class="step reveal"><span class="step-num">03</span><h3>Розробка і навчання</h3><p>Розробляємо production-рішення, навчаємо на ваших даних.</p></div>
-<div class="step reveal"><span class="step-num">04</span><h3>Запуск і моніторинг</h3><p>Деплой, моніторинг якості моделі та ітерації після запуску.</p></div>
+      <section class="process-section">
+        <div class="container">
+          <h2 class="title reveal">Як ми працюємо</h2>
+          <div class="process-grid">
+            <div class="step reveal">
+              <span class="step-num">01</span>
+              <h3>Аудит процесів</h3>
+              <p>
+                Аналізуємо бізнес-процеси і виявляємо точки для
+                AI-автоматизації.
+              </p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num">02</span>
+              <h3>Proof of Concept</h3>
+              <p>
+                За 1–2 тижні показуємо прототип, що демонструє реальну цінність.
+              </p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num">03</span>
+              <h3>Розробка і навчання</h3>
+              <p>Розробляємо production-рішення, навчаємо на ваших даних.</p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num">04</span>
+              <h3>Запуск і моніторинг</h3>
+              <p>Деплой, моніторинг якості моделі та ітерації після запуску.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="consult cyber-band small-band" id="consult">
+        <div class="container">
+          <h2>Замовити AI-інтеграції</h2>
+          <form>
+            <input placeholder="Ваше ім'я" />
+            <input placeholder="Телефон або Email" />
+            <button class="btn" type="submit">Надіслати <i>›</i></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="container">
+          <h2 class="title reveal">Часті запитання</h2>
+          <div class="faq-list">
+            <details class="faq-item reveal">
+              <summary>Чи потрібні мені власні дані для AI?</summary>
+              <p>
+                Не обов'язково. Є рішення на базі публічних моделей без власного
+                навчання.
+              </p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Як захищені наші дані?</summary>
+              <p>
+                Використовуємо enterprise-контракти з провайдерами, дані не
+                потрапляють у навчання моделей.
+              </p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>За скільки часу окупиться AI-рішення?</summary>
+              <p>
+                Залежить від задачі. Чат-бот для підтримки окупається за 1–3
+                місяці.
+              </p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>З якими LLM ви працюєте?</summary>
+              <p>
+                OpenAI GPT-4o, Anthropic Claude, Mistral, Llama та власні
+                fine-tuned моделі.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="logo logo-premium" href="#top" aria-label="NovaDrive">
+            <span class="logo-mark"><i></i></span>
+            <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
+          </a>
+          <p>
+            IT-агенція для брендингу, веброзробки, AI-інтеграцій та аналітики.
+            Будуємо цифровий продукт, що зростає.
+          </p>
+          <a class="footer-cta" href="#consult">Обговорити проєкт →</a>
+        </div>
+        <div>
+          <h3>Послуги</h3>
+          <a href="/branding">Брендинг і айдентика</a>
+          <a href="/webdev">Веброзробка</a>
+          <a href="/ai">AI-інтеграції</a>
+          <a href="/analytics">Аналітика</a>
+          <a href="/motion">Моушн-дизайн</a>
+          <a href="/support">Технічна підтримка</a>
+        </div>
+        <div>
+          <h3>Документи</h3>
+          <a href="/privacy-policy">Конфіденційність</a>
+          <a href="/terms-and-conditions">Умови використання</a>
+          <a href="/cookie-policy">Політика cookies</a>
+          <a href="/offer-agreement">Договір оферти</a>
+          <a href="/disclaimer">Відмова від відповідальності</a>
+        </div>
+        <div>
+          <h3>Контакти</h3>
+          <p>ФОП Марченко Олексій Вікторович</p>
+          <p>м. Київ, вул. Хрещатик, 22, оф. 14</p>
+          <a href="tel:+380991072034">+380 99 107 2034</a>
+          <a href="mailto:hello@novadrive.agency">hello@novadrive.agency</a>
+          <p>КВЕД 62.01 — Розробка ПЗ</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 NovaDrive. Усі права захищено.</p>
+      </div>
+    </footer>
+
+    <a class="float-call" href="tel:+380991072034" aria-label="Зателефонувати"
+      >☎</a
+    >
+    <a class="to-top" href="#top" aria-label="Вгору"><span>↑</span></a>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-inner">
+        <div class="cookie-text">
+          <span class="cookie-icon">🍪</span>
+          <p>
+            Ми використовуємо <strong>cookies</strong> для покращення досвіду.
+            <a href="/cookie-policy">Дізнатись більше</a>
+          </p>
+        </div>
+        <div class="cookie-actions">
+          <button class="btn small cookie-decline" id="cookieDecline">
+            Відхилити
+          </button>
+          <button class="btn small cookie-accept" id="cookieAccept">
+            Прийняти
+          </button>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="consult cyber-band small-band" id="consult">
-    <div class="container">
-      <h2>Замовити AI-інтеграції</h2>
-      <form>
-        <input placeholder="Ваше ім'я"/>
-        <input placeholder="Телефон або Email"/>
-        <button class="btn" type="submit">Надіслати <i>›</i></button>
-      </form>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-      <h2 class="title reveal">Часті запитання</h2>
-      <div class="faq-list">
-        <details class="faq-item reveal"><summary>Чи потрібні мені власні дані для AI?</summary><p>Не обов'язково. Є рішення на базі публічних моделей без власного навчання.</p></details>
-<details class="faq-item reveal"><summary>Як захищені наші дані?</summary><p>Використовуємо enterprise-контракти з провайдерами, дані не потрапляють у навчання моделей.</p></details>
-<details class="faq-item reveal"><summary>За скільки часу окупиться AI-рішення?</summary><p>Залежить від задачі. Чат-бот для підтримки окупається за 1–3 місяці.</p></details>
-<details class="faq-item reveal"><summary>З якими LLM ви працюєте?</summary><p>OpenAI GPT-4o, Anthropic Claude, Mistral, Llama та власні fine-tuned моделі.</p></details>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <a class="logo logo-premium" href="#top" aria-label="NovaDrive">
-        <span class="logo-mark"><i></i></span>
-        <span class="logo-text"><b>NOVA</b><em>IT-агенція</em></span>
-      </a>
-      <p>IT-агенція для брендингу, веброзробки, AI-інтеграцій та аналітики. Будуємо цифровий продукт, що зростає.</p>
-      <a class="footer-cta" href="#consult">Обговорити проєкт →</a>
-    </div>
-    <div>
-      <h3>Послуги</h3>
-      <a href="/branding">Брендинг і айдентика</a>
-      <a href="/webdev">Веброзробка</a>
-      <a href="/ai">AI-інтеграції</a>
-      <a href="/analytics">Аналітика</a>
-      <a href="/motion">Моушн-дизайн</a>
-      <a href="/support">Технічна підтримка</a>
-    </div>
-    <div>
-      <h3>Документи</h3>
-      <a href="/privacy-policy">Конфіденційність</a>
-      <a href="/terms-and-conditions">Умови використання</a>
-      <a href="/cookie-policy">Політика cookies</a>
-      <a href="/offer-agreement">Договір оферти</a>
-      <a href="/disclaimer">Відмова від відповідальності</a>
-    </div>
-    <div>
-      <h3>Контакти</h3>
-      <p>ФОП Марченко Олексій Вікторович</p>
-      <p>м. Київ, вул. Хрещатик, 22, оф. 14</p>
-      <a href="tel:+380991072034">+380 99 107 2034</a>
-      <a href="mailto:hello@novadrive.agency">hello@novadrive.agency</a>
-      <p>КВЕД 62.01 — Розробка ПЗ</p>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <p>© 2026 NovaDrive. Усі права захищено.</p>
-    <p>Зроблено з ♥ в Україні</p>
-  </div>
-</footer>
-
-<a class="float-call" href="tel:+380991072034" aria-label="Зателефонувати">☎</a>
-<a class="to-top" href="#top" aria-label="Вгору"><span>↑</span></a>
-
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="cookie-inner">
-    <div class="cookie-text">
-      <span class="cookie-icon">🍪</span>
-      <p>Ми використовуємо <strong>cookies</strong> для покращення досвіду.
-        <a href="/cookie-policy">Дізнатись більше</a></p>
-    </div>
-    <div class="cookie-actions">
-      <button class="btn small cookie-decline" id="cookieDecline">Відхилити</button>
-      <button class="btn small cookie-accept" id="cookieAccept">Прийняти</button>
-    </div>
-  </div>
-</div>
-
-<script src="/assets/js/main.js"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
