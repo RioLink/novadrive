@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://novadrive.agency/sitemap.xml
+Sitemap: https://nova-drive.site/sitemap.xml
